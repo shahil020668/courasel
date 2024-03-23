@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courasel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+         .container{
+            height: 200px;
+            width:800px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid red;
+         }
+         .arrowl{
+            height: 100%;
+            width: 10%;
+            border: 2px solid black;
+            display: flex;
+                justify-content: center;
+                align-items: center;
+            div{
+                height: 16px;
+                width: 16px;
+                border: 2px solid antiquewhite;
+            }
+         }
+         .arrowr{
+            height: 100%;
+            width: 10%;
+            border: 2px solid black;
+            display: flex;
+                justify-content: center;
+                align-items: center;
+            div{
+                height: 16px;
+                width: 16px;
+                border: 2px solid antiquewhite;
+                
+            }
+         }
+         .frame{
+            height:25vw ;
+            width: 45vw;
+             /* display: flex; */
+           /* flex-direction: row;
+            flex-wrap: wrap;
+         */
+            overflow: hidden;
+           
+         }
+         .slider{
+            height: 20vw;
+            width: 45vw;
+            display: flex;
+            img{
+                height: 100%;
+                width:100%;
+                /* border: 4px solid red; */
+                /* object-fit: cover; */
+            }
+
+            transition: all 1s ease 0s;
+         }
+
+         /* .slider{
+                transform: translateX(-640px);
+         } */
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div  class="arrowl">
+            <div><i onclick="moveright();" style="cursor: pointer; height: 100%; width: 100%;" class="fa-solid fa-chevron-left"></i></div>
+        </div>
+        <div class="frame">
+            <div class="slider">
+                <img src="oceansat3_high.jpg" alt="no">
+                <img src="PreciseAirQualityMonitoring.jpg.webp" alt="no">
+                <img src="chairman_live.png.webp" alt="no">
+                <img src="AO14220224.jpg" alt="no">
+                <img src="Astrosat.png" alt="no">
+                <img src="decadalvision.jpg" alt="no">
+                <img src="Achievements_Space.jpg.webp" alt="no">
+            </div>
+        </div>
+        <div  class="arrowr">
+            <div><i onclick="moveleft();" style="cursor: pointer; height: 100%; width: 100%;" class="fa-solid fa-chevron-right"></i></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const slider = document.querySelector(".slider");
+        let slide = 1;
+        // let j = parseInt(1);
+        const imag = document.querySelectorAll("img");
+        // let m = parseInt(640);
+        function moveright() {
+
+            if(slide>1){
+                slider.style.transform = `translateX(${-(slide-2)*45}vw)`;
+                slide--;
+            }
+            else{
+                slider.style.transform = `translateX(-180vw)`;
+                slide = 5;
+            }
+            console.log(slide);
+        }
+
+        function moveleft () {
+            
+            if(slide < imag.length){
+                slider.style.transform = `translateX(-${45*slide}vw)`;
+                slide++;
+                // document.write("hello");
+            }
+            else {
+                slider.style.transform = `translateX(0px)`;
+                slide=1;
+            }
+            console.log(slide);
+        }
+    </script>
+</body>
+</html>
